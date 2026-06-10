@@ -1,0 +1,384 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程缘琴 · Yuanqin Cheng | Cross-disciplinary Integrator</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigoDeep: '#080811', /* 纯粹底色：静谧黑夜 */
+                        sandWarm: '#f7f4eb',   /* 顶级沙色：高岭象牙白 */
+                        goldAccent: '#cfad6a',  /* 高雅奢华：流金香槟 */
+                        cardBg: 'rgba(18, 18, 35, 0.65)' /* 加深卡片底色保证易读性 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-indigoDeep text-sandWarm antialiased overflow-x-hidden">
+
+    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-goldAccent/5 to-transparent pointer-events-none z-0 blur-[150px]"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tl from-purple-900/5 to-transparent pointer-events-none z-0 blur-[150px]"></div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-6 px-8 md:px-16 flex justify-between items-center bg-indigoDeep/70 backdrop-blur-xl border-b border-goldAccent/5">
+        <a href="#" class="font-serif text-xl font-light tracking-[0.2em] text-goldAccent">
+            Y.Q. CHENG
+        </a>
+        <nav class="hidden md:flex space-x-10 text-[11px] tracking-[0.25em] uppercase text-sandWarm/60">
+            <a href="#system" class="hover:text-goldAccent transition-colors">SYSTEM / 能力系统</a>
+            <a href="#timeline" class="hover:text-goldAccent transition-colors">TIMELINE / 进化轴</a>
+            <a href="#matrix" class="hover:text-goldAccent transition-colors">MATRIX / 矩阵</a>
+            <a href="#credentials" class="hover:text-goldAccent transition-colors">PROJECTS / 项目实录</a>
+            <a href="#resources" class="hover:text-goldAccent transition-colors">RESOURCES / 资源沉淀</a>
+            <a href="#contact" class="hover:text-goldAccent transition-colors">CONNECT / 联系</a>
+        </nav>
+        <button id="menu-btn" class="md:hidden text-sandWarm text-lg z-50">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-indigoDeep/98 z-40 hidden flex flex-col justify-center items-center space-y-8 text-lg tracking-[0.2em] font-serif">
+        <a href="#system" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">能力系统</a>
+        <a href="#timeline" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">能力进化时间轴</a>
+        <a href="#matrix" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">核心能力矩阵</a>
+        <a href="#credentials" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">标杆项目实录</a>
+        <a href="#resources" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">资源沉淀板块</a>
+        <a href="#contact" onclick="toggleMenu()" class="text-sandWarm hover:text-goldAccent">联系战略对话</a>
+    </div>
+
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 text-center">
+        <div class="max-w-4xl mx-auto space-y-8 relative z-10">
+            <div class="space-y-3 reveal-element">
+                <p class="font-serif text-2xl md:text-3xl font-light tracking-wide text-sandWarm">程缘琴 · Yuanqin Cheng</p>
+                <p class="font-sans text-xs tracking-[0.4em] text-goldAccent font-medium uppercase">Cross-disciplinary Integrator</p>
+                <p class="font-sans text-xs tracking-wider text-gray-400">设计 × 品牌 × 产业 × 政府项目 &emsp;|&emsp; Design × Brand × Industry × Public Programs</p>
+            </div>
+            
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-goldAccent/40 to-transparent mx-auto reveal-element"></div>
+            
+            <div class="space-y-4 reveal-element">
+                <h1 class="font-serif text-4xl md:text-6xl font-light tracking-wide leading-tight text-sandWarm">
+                    设计的不只是视觉，<br class="hidden md:inline"><span class="italic font-extralight text-goldAccent">而是复杂系统的落地能力。</span>
+                </h1>
+                <p class="font-serif text-lg md:text-2xl text-gray-500 italic tracking-widest font-extralight">
+                    Designing Systems, Not Just Visuals.
+                </p>
+            </div>
+
+            <p class="text-xs md:text-sm tracking-widest text-gray-300 leading-relaxed font-light max-w-2xl mx-auto reveal-element">
+                从艺术设计出发，逐步成长为国家级赛事操盘手、产业项目推动者与资源整合者，在创意、商业与产业之间搭建可持续增长的桥梁。
+            </p>
+
+            <div class="h-8 flex items-center justify-center reveal-element">
+                <p id="dynamic-tagline" class="font-sans text-xs tracking-[0.3em] uppercase text-goldAccent font-medium bg-goldAccent/5 px-4 py-1.5 border border-goldAccent/10 rounded-full">
+                    </p>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center reveal-element">
+                <a href="#credentials" class="group relative inline-block px-10 py-3.5 overflow-hidden border border-goldAccent/40 text-goldAccent tracking-[0.2em] text-xs uppercase bg-goldAccent/5 transition-all duration-500 hover:text-indigoDeep">
+                    <span class="absolute inset-0 w-0 bg-goldAccent transition-all duration-500 ease-out group-hover:w-full z-0"></span>
+                    <span class="relative z-10 font-medium">鉴赏项目实证档案</span>
+                </a>
+                <a href="https://www.linkedin.com/posts/cheng-ehco-24a13a308_ugcPost-7459508708801187842-sqKL/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE5Ug9oBT6QiZybVyY_QJWlM45Li1nkvvwg" target="_blank" class="group inline-flex items-center gap-2 px-8 py-3.5 border border-white/10 text-white/70 tracking-[0.15em] text-xs uppercase hover:border-goldAccent hover:text-goldAccent transition-all duration-300">
+                    <i class="fa-brands fa-linkedin text-sm"></i> 调取 LinkedIn 国际证书核验
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="system" class="py-32 px-8 md:px-24 max-w-6xl mx-auto reveal-element">
+        <div class="text-center mb-20">
+            <span class="text-goldAccent text-xs tracking-[0.4em] block mb-2">// 01 CORE SYSTEM</span>
+            <h2 class="font-serif text-3xl font-light text-sandWarm">底层逻辑与核心能力系统</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center relative">
+            <div class="p-6 bg-cardBg border border-white/5 text-center">
+                <div class="text-xs text-goldAccent tracking-widest font-serif mb-2">STAGE 01</div>
+                <div class="font-serif text-lg text-sandWarm font-light">设计思维</div>
+            </div>
+            <div class="text-center text-goldAccent/40 hidden md:block"><i class="fa-solid fa-chevron-right text-sm"></i></div>
+            <div class="p-6 bg-cardBg border border-white/5 text-center">
+                <div class="text-xs text-goldAccent tracking-widest font-serif mb-2">STAGE 02</div>
+                <div class="font-serif text-lg text-sandWarm font-light">品牌增长</div>
+            </div>
+            <div class="text-center text-goldAccent/40 hidden md:block"><i class="fa-solid fa-chevron-right text-sm"></i></div>
+            <div class="p-6 bg-cardBg border border-white/5 text-center">
+                <div class="text-xs text-goldAccent tracking-widest font-serif mb-2">STAGE 03</div>
+                <div class="font-serif text-lg text-sandWarm font-light">资源整合</div>
+            </div>
+            <div class="text-center text-goldAccent/40 hidden md:block"><i class="fa-solid fa-chevron-right text-sm"></i></div>
+            <div class="p-6 bg-cardBg border border-white/5 text-center">
+                <div class="text-xs text-goldAccent tracking-widest font-serif mb-2">STAGE 04</div>
+                <div class="font-serif text-lg text-sandWarm font-light">项目管理</div>
+            </div>
+            <div class="text-center text-goldAccent/40 hidden md:block"><i class="fa-solid fa-chevron-right text-sm"></i></div>
+            <div class="p-6 bg-cardBg border border-white/5 text-center">
+                <div class="text-xs text-goldAccent tracking-widest font-serif mb-2">STAGE 05</div>
+                <div class="font-serif text-lg text-sandWarm font-light">产业运营</div>
+            </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-gradient-to-r from-goldAccent/5 to-transparent border-l-2 border-goldAccent/60 grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 01</div><div class="text-sm text-sandWarm font-light mt-1">发现问题</div></div>
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 02</div><div class="text-sm text-sandWarm font-light mt-1">分析需求</div></div>
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 03</div><div class="text-sm text-sandWarm font-light mt-1">整合资源</div></div>
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 04</div><div class="text-sm text-sandWarm font-light mt-1">推动执行</div></div>
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 05</div><div class="text-sm text-sandWarm font-light mt-1">沉淀体系</div></div>
+            <div><div class="text-[10px] text-gray-500 uppercase tracking-widest">ACT 06</div><div class="text-sm text-goldAccent font-medium mt-1">复制增长</div></div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-24 bg-black/40 border-y border-white/5 px-8 md:px-24 reveal-element">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-20 text-center md:text-left">
+                <span class="text-goldAccent text-xs tracking-[0.4em] block mb-2">// 02 EVOLUTION TIMELINE</span>
+                <h2 class="font-serif text-3xl font-light text-sandWarm">能力进化时间轴</h2>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-[1px] before:bg-white/10">
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-goldAccent rounded-full -translate-x-[5px] md:-translate-x-1.5 top-1.5 z-10 ring-4 ring-indigoDeep"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right space-y-2">
+                        <span class="font-serif text-lg text-goldAccent block">艺术设计</span>
+                        <div class="text-xs text-gray-400 font-light leading-relaxed">
+                            <strong class="text-sandWarm/90 block mb-1">核心能力：</strong>
+                            用户研究 · 客群画像 · 市场分析 · 审美表达 · 空间叙事
+                        </div>
+                        <div class="text-[11px] text-gray-500 bg-white/[0.02] p-3 inline-block rounded border border-white/5 md:text-right">
+                            <span class="text-goldAccent/70 font-medium block text-[9px] uppercase tracking-wider">商业价值</span>
+                            理解用户需求并转化为具有吸引力的产品与空间体验。
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-goldAccent rounded-full -translate-x-[5px] md:-translate-x-1.5 top-1.5 z-10 ring-4 ring-indigoDeep"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-8 space-y-2">
+                        <span class="font-serif text-lg text-goldAccent block">商业空间</span>
+                        <div class="text-xs text-gray-400 font-light leading-relaxed">
+                            <strong class="text-sandWarm/90 block mb-1">核心能力：</strong>
+                            商业定位 · 场景营造 · 动线规划 · 消费行为分析 · 空间运营思维
+                        </div>
+                        <div class="text-[11px] text-gray-500 bg-white/[0.02] p-3 inline-block rounded border border-white/5">
+                            <span class="text-goldAccent/70 font-medium block text-[9px] uppercase tracking-wider">商业价值</span>
+                            让空间成为品牌传播与消费转化的载体。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-goldAccent rounded-full -translate-x-[5px] md:-translate-x-1.5 top-1.5 z-10 ring-4 ring-indigoDeep"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right space-y-2">
+                        <span class="font-serif text-lg text-goldAccent block">品牌营销</span>
+                        <div class="text-xs text-gray-400 font-light leading-relaxed">
+                            <strong class="text-sandWarm/90 block mb-1">核心能力：</strong>
+                            品牌定位 · 内容策划 · 新媒体运营 · 用户增长 · 转化优化
+                        </div>
+                        <div class="text-[11px] text-gray-500 bg-white/[0.02] p-3 inline-block rounded border border-white/5">
+                            <span class="text-goldAccent/70 font-medium block text-[9px] uppercase tracking-wider">商业价值</span>
+                            用更低预算获得更高传播与销售转化。
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-goldAccent rounded-full -translate-x-[5px] md:-translate-x-1.5 top-1.5 z-10 ring-4 ring-indigoDeep"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-8 space-y-2">
+                        <span class="font-serif text-lg text-goldAccent block">国家级赛事</span>
+                        <div class="text-xs text-gray-400 font-light leading-relaxed">
+                            <strong class="text-sandWarm/90 block mb-1">核心能力：</strong>
+                            项目统筹 · 多方协调 · 风险管理 · 预算控制 · 标准化交付
+                        </div>
+                        <div class="text-[11px] text-gray-500 bg-white/[0.02] p-3 inline-block rounded border border-white/5">
+                            <span class="text-goldAccent/70 font-medium block text-[9px] uppercase tracking-wider">商业价值</span>
+                            将复杂赛事转化为可复制、可量化的运营体系。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-goldAccent rounded-full -translate-x-[5px] md:-translate-x-1.5 top-1.5 z-10 ring-4 ring-indigoDeep"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right space-y-2">
+                        <span class="font-serif text-lg text-goldAccent block">政府产业项目</span>
+                        <div class="text-xs text-gray-400 font-light leading-relaxed">
+                            <strong class="text-sandWarm/90 block mb-1">核心能力：</strong>
+                            政策解读 · 资源整合 · 专家协同 · 企业服务 · 生态运营
+                        </div>
+                        <div class="text-[11px] text-gray-500 bg-white/[0.02] p-3 inline-block rounded border border-white/5">
+                            <span class="text-goldAccent/70 font-medium block text-[9px] uppercase tracking-wider">商业价值</span>
+                            实现政府资源、产业需求与市场价值的高效连接。
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="matrix" class="py-32 px-8 md:px-24 max-w-7xl mx-auto reveal-element">
+        <div class="text-center mb-16">
+            <span class="text-goldAccent text-xs tracking-[0.4em] block mb-2">// 03 INTEGRATED MATRIX</span>
+            <h2 class="font-serif text-3xl font-light text-sandWarm">Cross-disciplinary Integrator 核心能力矩阵</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="p-6 bg-cardBg border border-white/5 space-y-4">
+                <div class="text-goldAccent font-serif text-xl border-b border-white/5 pb-2">Design</div>
+                <ul class="text-xs text-gray-400 space-y-2 font-light">
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 用户洞察</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 空间设计</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 策展思维</li>
+                </ul>
+            </div>
+            <div class="p-6 bg-cardBg border border-white/5 space-y-4">
+                <div class="text-goldAccent font-serif text-xl border-b border-white/5 pb-2">Business</div>
+                <ul class="text-xs text-gray-400 space-y-2 font-light">
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 品牌增长</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 内容传播</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 商业模式</li>
+                </ul>
+            </div>
+            <div class="p-6 bg-cardBg border border-white/5 space-y-4">
+                <div class="text-goldAccent font-serif text-xl border-b border-white/5 pb-2">Industry</div>
+                <ul class="text-xs text-gray-400 space-y-2 font-light">
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 产业资源</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 企业服务</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 专家网络</li>
+                </ul>
+            </div>
+            <div class="p-6 bg-cardBg border border-white/5 space-y-4">
+                <div class="text-goldAccent font-serif text-xl border-b border-white/5 pb-2">Government</div>
+                <ul class="text-xs text-gray-400 space-y-2 font-light">
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 政策协同</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 项目管理</li>
+                    <li><i class="fa-solid fa-angle-right text-goldAccent/40 mr-1.5"></i> 多方协调</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 p-6 text-center bg-white/[0.01] border border-white/5 max-w-3xl mx-auto">
+            <span class="text-[10px] text-goldAccent uppercase tracking-[0.2em] font-sans block mb-1">最终价值 / ULTIMATE VALUE</span>
+            <p class="text-sm font-serif text-sandWarm/90">在创意与秩序之间，构建能够真正落地的系统解决方案。</p>
+        </div>
+    </section>
+
+    <section id="credentials" class="py-32 bg-black/60 border-y border-white/5 px-8 md:px-24 reveal-element">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 text-left max-w-xl">
+                <span class="text-goldAccent text-xs tracking-[0.4em] block mb-2">// 04 REAL PORTFOLIOS</span>
+                <h2 class="font-serif text-3xl font-light text-sandWarm">标杆项目与空间美学实录</h2>
+                <p class="text-xs text-gray-500 font-sans mt-2">真实影像与官方权威报道交叉互证（点击卡片调取现场大图）</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div id="credentials-container" class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    </div>
+
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="border-b border-white/10 pb-2">
+                        <span class="text-[10px] text-goldAccent tracking-widest font-medium uppercase font-serif">Process Archives / 轻量履历专线</span>
+                    </div>
+                    <div id="mini-projects-container" class="space-y-4">
+                        </div>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-16 border-t border-white/5">
+                <div class="mb-10"><h3 class="font-serif text-xl text-goldAccent font-light">空间与美陈现场成果选辑</h3></div>
+                <div id="spaces-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="py-32 px-8 md:px-24 max-w-7xl mx-auto reveal-element">
+        <div class="text-center mb-20">
+            <span class="text-goldAccent text-xs tracking-[0.4em] block mb-2">// 05 METRICS & ASSETS</span>
+            <h2 class="font-serif text-3xl font-light text-sandWarm">资源沉淀与运营数据</h2>
+            <p class="font-serif text-sm text-goldAccent/70 italic mt-3 max-w-xl mx-auto">
+                “每一次项目交付不仅完成目标，更沉淀方法论，为下一次增长创造复利。”
+            </p>
+        </div>
+
+        <div id="metrics-container" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 text-center">
+            </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-black px-8 md:px-24 border-t border-white/5 text-center reveal-element">
+        <div class="max-w-2xl mx-auto space-y-8">
+            <span class="text-goldAccent text-xs tracking-[0.4em] block">// 06 STRATEGIC CONNECT</span>
+            <div class="space-y-1">
+                <h2 class="font-serif text-3xl font-light text-sandWarm">程缘琴 <span class="text-goldAccent italic text-2xl font-extralight">Yuanqin Cheng</span></h2>
+                <p class="text-xs text-gray-500 font-sans tracking-widest uppercase">启动深度战略对话</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-sandWarm/80 pt-6">
+                <div class="p-6 bg-indigoDeep/60 border border-white/5 hover:border-goldAccent/30 transition-all">
+                    <i class="fa-solid fa-envelope text-goldAccent text-base mb-2 block"></i>
+                    <span class="text-[9px] block text-gray-500 uppercase tracking-widest mb-1">Email</span>
+                    <a href="mailto:cyuanq@foxmail.com" class="hover:text-goldAccent font-sans text-xs break-all">cyuanq@foxmail.com</a>
+                </div>
+                <div class="p-6 bg-indigoDeep/60 border border-white/5 hover:border-goldAccent/30 transition-all">
+                    <i class="fa-solid fa-hashtag text-goldAccent text-base mb-2 block"></i>
+                    <span class="text-[9px] block text-gray-500 uppercase tracking-widest mb-1">小红书</span>
+                    <span class="text-sandWarm text-xs font-medium" id="xhs-target">心想事程女士</span>
+                </div>
+                <div class="p-6 bg-indigoDeep/60 border border-white/5 hover:border-goldAccent/30 transition-all">
+                    <i class="fa-solid fa-video text-goldAccent text-base mb-2 block"></i>
+                    <span class="text-[9px] block text-gray-500 uppercase tracking-widest mb-1">微信视频号</span>
+                    <span class="text-sandWarm text-xs font-medium" id="video-target">心想事程女士</span>
+                </div>
+            </div>
+
+            <div class="pt-16 border-t border-white/5 text-[10px] text-gray-600 tracking-widest">
+                <p>&copy; <span id="year-target"></span> YUANQIN CHENG. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="premium-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-indigoDeep/95 backdrop-blur-2xl transition-all duration-500 opacity-0">
+        <div class="premium-glass max-w-5xl w-full grid grid-cols-1 md:grid-cols-12 relative border border-white/10 bg-indigoDeep">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-sandWarm hover:text-goldAccent text-xl z-30"><i class="fa-solid fa-xmark"></i></button>
+            <div class="md:col-span-7 bg-black min-h-[350px] flex items-center justify-center p-4 relative"><img id="modal-image" src="" class="max-w-full max-h-[75vh] object-contain shadow-2xl relative z-10"></div>
+            <div class="md:col-span-5 p-8 flex flex-col justify-between space-y-6 bg-black/20">
+                <div class="space-y-4">
+                    <span id="modal-tag" class="text-[9px] uppercase tracking-widest text-goldAccent border border-goldAccent/30 px-2 py-0.5 inline-block"></span>
+                    <h3 id="modal-title" class="font-serif text-2xl text-sandWarm font-light tracking-wide"></h3>
+                    <h4 id="modal-subtitle" class="text-xs text-goldAccent/80"></h4>
+                    <div id="modal-metrics" class="text-[11px] text-goldAccent tracking-wider bg-goldAccent/5 py-2 px-3 block border-l-2 border-goldAccent/40"></div>
+                    <div id="modal-detail" class="text-gray-400 text-xs leading-relaxed font-light"></div>
+                </div>
+                <div class="text-[9px] tracking-widest text-gray-500 font-sans border-t border-white/5 pt-4">AUTHENTIC FILE / 现场交付对齐</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
