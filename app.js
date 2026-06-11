@@ -89,19 +89,31 @@ const SITE_DATA = {
             title: "金科邻里销售中心", 
             type: "社区型销售中心 / 空间美学", 
             desc: "打破空间沉闷感，用温暖而质朴的设计语汇，营造富有归属感的邻里美学生活场。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmugNV0.jpg" // 【新加案例精准对齐】
+            imgUrl: "https://s41.ax1x.com/2026/06/10/pmugNV0.jpg"
         },
         { 
             title: "艺术装置成果辑", 
             type: "定制化先锋艺术 / 装置美陈", 
-            desc: "精益雕琢结构与光影媒介，用极具视觉冲击力的先锋艺术艺术装置穿透物理空间。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmuc4un.png" // 【新加案例精准对齐】
+            desc: "精益雕琢结构与光影媒介，用极极具视觉冲击力的先锋艺术艺术装置穿透物理空间。", 
+            imgUrl: "https://s41.ax1x.com/2026/06/10/pmuc4un.png"
         }
     ],
     miniProjects: [
-        { title: "机器人年会长廊视觉美陈总控", tag: "空间美陈 × 秩序总控", desc: "针对高规格峰会特定长廊进行空间美学叙事布局，在极短时效内达成高纯度政企形象传达。" },
-        { title: "智能仿生机器人学术 Seminar 研讨", tag: "中智院学术专场", desc: "高效链接两江新区管委会与学术泰斗，解构政策台账，完成数场零偏差高精尖闭环内部研讨会流程总控。" },
-        { title: "扬州砂之船商业美陈规划", tag: "商业美陈 / 未公开案例", desc: "将先锋戏剧美学深度融入大型奥特莱斯中庭，通过场景化微美陈重塑消费动线，精准引爆商业客流。" }
+        { 
+            title: "机器人年会长廊视觉美陈总控", 
+            tag: "空间美陈 × 秩序总控", 
+            desc: "针对高规格峰会特定长廊进行空间美学叙事布局，在极短时效内达成高纯度政企形象传达。" 
+        },
+        { 
+            title: "智能仿生机器人学术 Seminar 研讨", 
+            tag: "中智院学术专场", 
+            desc: "高效链接两江新区管委会与学术泰斗，解构政策台账，完成数场零偏差高精尖闭环内部研讨会流程总控。" 
+        },
+        { 
+            title: "2025世界智能产业博览会机器人产业展区统筹负责人", 
+            tag: "国家级展会 × 闭环运营", 
+            desc: "负责企业招展、产业资源协调、现场运营及多方协同管理。面对复杂项目环境成功达成招展目标并攻坚多项突发问题，最终推动展区实现高质量落地、100%项目交付与零投诉运营。" 
+        }
     ],
     metrics: [
         { val: "100+", label: "企业资源" },
@@ -115,6 +127,7 @@ const SITE_DATA = {
     ]
 };
 
+// DOM 加载完毕初始化渲染
 document.addEventListener("DOMContentLoaded", () => {
     initTypingEffect();
     renderCredentials();
@@ -124,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initRevealObserver();
 });
 
+// 打字机动态动效
 function initTypingEffect() {
     const taglines = SITE_DATA.profile.taglines;
     let line = 0, char = 0, deleting = false;
@@ -136,13 +150,20 @@ function initTypingEffect() {
         char = deleting ? char - 1 : char + 1;
         
         let speed = deleting ? 30 : 60;
-        if (!deleting && char === fullText.length) { speed = 2000; deleting = true; }
-        else if (deleting && char === 0) { deleting = false; line = (line + 1) % taglines.length; speed = 500; }
+        if (!deleting && char === fullText.length) { 
+            speed = 2000; 
+            deleting = true; 
+        } else if (deleting && char === 0) { 
+            deleting = false; 
+            line = (line + 1) % taglines.length; 
+            speed = 500; 
+        }
         setTimeout(type, speed);
     }
     setTimeout(type, 500);
 }
 
+// 渲染核心成果卡片 (Credentials)
 function renderCredentials() {
     const container = document.getElementById('credentials-container');
     if (!container) return;
@@ -150,12 +171,12 @@ function renderCredentials() {
 
     SITE_DATA.credentials.forEach((item) => {
         let linksHtml = '';
-        if (item.links) {
+        if (item.links && item.links.length > 0) {
             linksHtml = `<div class="flex flex-col gap-2 pt-3 border-t border-white/5 mt-3">`;
             item.links.forEach(lnk => {
                 linksHtml += `
                     <a href="${lnk.url}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-goldAccent hover:text-white transition-colors font-medium">
-                        <i class="fa-solid ${lnk.icon}"></i> ${lnk.text} &rarr;
+                        <i class="${lnk.icon.includes('fa-') ? lnk.icon : 'fa-solid ' + lnk.icon}"></i> ${lnk.text} &rarr;
                     </a>
                 `;
             });
@@ -168,16 +189,20 @@ function renderCredentials() {
                     <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-all duration-700">
                     <span class="absolute top-4 left-4 bg-black/80 text-[9px] text-goldAccent tracking-widest uppercase px-2 py-1 border border-goldAccent/20">${item.tag}</span>
                 </div>
-                <div class="p-6 space-y-3">
-                    <h3 class="font-serif text-lg text-sandWarm tracking-wide leading-snug">${item.title}</h3>
-                    <p class="text-[11px] text-gray-400 font-light">${item.subtitle}</p>
-                    <div class="text-goldAccent text-[11px] tracking-wider bg-goldAccent/5 py-1 px-2.5 block border-l border-goldAccent/40">${item.metrics}</div>
-                    <p class="text-gray-300 text-xs font-light leading-relaxed">${item.desc}</p>
-                    ${linksHtml}
-                    <div class="pt-2">
-                        <button onclick="openModal('${item.id}')" class="text-[9px] tracking-widest uppercase text-gray-300 hover:text-goldAccent transition-colors flex items-center gap-1">
-                            查看实录大图 <i class="fa-solid fa-expand text-[8px]"></i>
-                        </button>
+                <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-lg text-sandWarm tracking-wide leading-snug">${item.title}</h3>
+                        <p class="text-[11px] text-gray-400 font-light">${item.subtitle}</p>
+                        <div class="text-goldAccent text-[11px] tracking-wider bg-goldAccent/5 py-1 px-2.5 block border-l border-goldAccent/40">${item.metrics}</div>
+                        <p class="text-gray-300 text-xs font-light leading-relaxed">${item.desc}</p>
+                    </div>
+                    <div>
+                        ${linksHtml}
+                        <div class="pt-3">
+                            <button onclick="window.openModal('${item.id}')" class="text-[9px] tracking-widest uppercase text-gray-300 hover:text-goldAccent transition-colors flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">
+                                查看实录大图 <i class="fa-solid fa-expand text-[8px]"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,6 +210,7 @@ function renderCredentials() {
     });
 }
 
+// 渲染轻量项目模块 (MiniProjects)
 function renderMiniModules() {
     const container = document.getElementById('mini-projects-container');
     if (!container) return;
@@ -200,13 +226,14 @@ function renderMiniModules() {
     });
 }
 
+// 渲染 9 大空间美学案例 (Spaces)
 function renderSpaces() {
     const container = document.getElementById('spaces-container');
     if (!container) return;
     container.innerHTML = '';
     SITE_DATA.spaces.forEach((g, idx) => {
         container.innerHTML += `
-            <div onclick="openSpaceModal(${idx})" class="premium-glass overflow-hidden group min-h-[260px] flex flex-col justify-end p-6 relative cursor-pointer reveal-element active">
+            <div onclick="window.openSpaceModal(${idx})" class="premium-glass overflow-hidden group min-h-[260px] flex flex-col justify-end p-6 relative cursor-pointer reveal-element active">
                 <div class="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-85 transition-all duration-700 z-0" style="background-image: url('${g.imgUrl}');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
                 <div class="relative z-20 space-y-1">
@@ -218,6 +245,7 @@ function renderSpaces() {
     });
 }
 
+// 渲染量化指标 (Metrics)
 function renderMetrics() {
     const container = document.getElementById('metrics-container');
     if (!container) return;
@@ -232,40 +260,64 @@ function renderMetrics() {
     });
 }
 
-function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+// 弹窗底层数据组装方法与防御性过滤
+function setupAndDisplayModal(tag, title, subtitle, metrics, detail, imgUrl) {
+    const elements = {
+        'modal-tag': tag,
+        'modal-title': title,
+        'modal-subtitle': subtitle,
+        'modal-metrics': metrics,
+        'modal-detail': detail
+    };
+    
+    // 安全赋值文本
+    Object.keys(elements).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = elements[id] || '';
+    });
 
-function openModal(id) {
+    // 安全赋值图片
+    const imgEl = document.getElementById('modal-image');
+    if (imgEl) imgEl.src = imgUrl || '';
+
+    // 唤醒弹窗动效
+    const modal = document.getElementById('premium-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        setTimeout(() => { modal.classList.add('opacity-100'); }, 40);
+        document.body.classList.add('overflow-hidden');
+    }
+}
+
+// ==========================================
+// 挂载至全局 Window 对象，防止 CodePen 作用域隔离报错
+// ==========================================
+
+window.toggleMenu = function() { 
+    const menu = document.getElementById('mobile-menu');
+    if (menu) menu.classList.toggle('hidden'); 
+};
+
+window.openModal = function(id) {
     const data = SITE_DATA.credentials.find(c => c.id === id);
     if (!data) return;
     setupAndDisplayModal(data.tag, data.title, data.subtitle, data.metrics, data.desc, data.imgUrl);
-}
+};
 
-function openSpaceModal(index) {
+window.openSpaceModal = function(index) {
     const data = SITE_DATA.spaces[index];
     if (!data) return;
     const targetImg = data.modalImgUrl ? data.modalImgUrl : data.imgUrl;
     setupAndDisplayModal("空间美学完工选辑 / SPACES", data.title, data.type, "1:1 实体空间成果证明", data.desc, targetImg);
-}
+};
 
-function setupAndDisplayModal(tag, title, subtitle, metrics, detail, imgUrl) {
-    document.getElementById('modal-tag').innerText = tag;
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-subtitle').innerText = subtitle;
-    document.getElementById('modal-metrics').innerText = metrics;
-    document.getElementById('modal-detail').innerText = detail;
-    document.getElementById('modal-image').src = imgUrl;
+window.closeModal = function() {
     const modal = document.getElementById('premium-modal');
-    modal.classList.remove('hidden');
-    setTimeout(() => { modal.classList.add('opacity-100'); }, 40);
-    document.body.classList.add('overflow-hidden');
-}
-
-function closeModal() {
-    const modal = document.getElementById('premium-modal');
+    if (!modal) return;
     modal.classList.remove('opacity-100');
     setTimeout(() => { modal.classList.add('hidden'); }, 400);
     document.body.classList.remove('overflow-hidden');
-}
+};
 
 function initRevealObserver() {
     document.querySelectorAll('.reveal-element').forEach(el => el.classList.add('active'));
