@@ -20,7 +20,7 @@ const SITE_DATA = {
             tag: "国家级赛事 / 官方实录",
             metrics: "零失误高规格闭环交付 | 百万级立体曝光",
             desc: "精细化拆解顶层架构设计。高效统筹政企、产业方与参赛团队，实现“低预算撬动千倍溢出效应”的大赛总控标杆。",
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmu6sW4.jpg",
+            imgUrl: "https://i.ibb.co/VYgnfy1k/20260609115242-346-14.jpg",
             links: [
                 { text: "新华财经官方报道", url: "https://bm.cnfic.com.cn/sharing/share/articleDetail/340653660713508864/1?date=1746607191000", icon: "fa-newspaper" },
                 { text: "微信官方推介实录", url: "https://mp.weixin.qq.com/s/jypSAxkIBPQEcVcOaO5pBQ", icon: "fa-brands fa-weixin" }
@@ -33,7 +33,7 @@ const SITE_DATA = {
             tag: "顶级产业智库 / 现场纪实",
             metrics: "极限成本重塑 | 高水准连办",
             desc: "颠覆行业传统百万级高昂报价，精细到分秒的流程总控。高效链接顶级专家学者，并为地方政府沉淀了长效智库台账。",
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmusete.jpg",
+            imgUrl: "https://i.ibb.co/DfTY58rx/20260609115142-345-14.jpg",
             links: [
                 { text: "高水平专家智库名录", url: "https://www.info-rae.cn/index.php/Academician/details_h?aid=1185", icon: "fa-graduation-cap" }
             ]
@@ -44,14 +44,14 @@ const SITE_DATA = {
             title: "照母山天玺销售中心", 
             type: "顶级销售中心 / 空间美学", 
             desc: "极致精细的材质碰撞与光影渲染，解构未来人居的高端空间感官。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmusK1A.png"
+            imgUrl: "https://i.ibb.co/ynqz8rC1/2.png"
         },
         { 
             title: "重庆俊豪观棠府销售中心", 
             type: "艺术沙盘区 / 空间美学", 
             desc: "将建筑尺度与室内美学无缝融合，赋予空间自传播的内容破圈力。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmusmfH.png", 
-            modalImgUrl: "https://s41.ax1x.com/2026/06/10/pmus30f.png"
+            imgUrl: "https://i.ibb.co/5xsksgRV/6.png", 
+            modalImgUrl: "https://i.ibb.co/5xsksgRV/6.png"
         },
         { 
             title: "大足 · 龙水湖酒店", 
@@ -63,7 +63,7 @@ const SITE_DATA = {
             title: "石家庄 · 金科正定府", 
             type: "海派城市会客厅 / 空间美学", 
             desc: "兼顾人文气韵与商业营销动线，让设计方案实现1:1的高精度完美还原。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmusM6I.png"
+            imgUrl: "https://i.ibb.co/5X0dhRy9/WPS-1-333.png"
         },
         { 
             title: "北方新生活盛文锦州书城", 
