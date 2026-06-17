@@ -34,6 +34,58 @@
             }
         }
     </script>
+    
+    <!-- 空间板块专项暴力替换脚本 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            function forceFixImages() {
+                // 1. 核心大项目与小项目常规替换
+                const generalRules = [
+                    { keys: ["重点研发", "机器人"], url: "https://i.ibb.co/DfTY58rx/20260609115142-345-14.jpg" },
+                    { keys: ["创客", "仿生"], url: "https://i.ibb.co/VYgnfy1k/20260609115242-346-14.jpg" },
+                    { keys: ["金科", "正定府"], url: "https://i.ibb.co/5X0dhRy9/WPS-1-333.png" }
+                ];
+
+                document.querySelectorAll('#credentials-container img, #mini-projects-container img, #modal-image').forEach(img => {
+                    const combinedText = ((img.alt || "") + " " + (img.closest('div')?.innerText || "")).toLowerCase();
+                    generalRules.forEach(rule => {
+                        if (rule.keys.some(key => combinedText.includes(key.toLowerCase())) && img.src !== rule.url) {
+                            img.src = rule.url;
+                        }
+                    });
+                });
+
+                // 2. 针对【空间与美陈现场成果选辑】的精准狙击替换
+                document.querySelectorAll('#spaces-container img, img').forEach(img => {
+                    // 获取当前图片所在卡片的所有文本内容
+                    const cardText = img.closest('div')?.parentElement?.innerText || img.closest('div')?.innerText || "";
+                    
+                    if (cardText.includes("照母山") || cardText.includes("天玺")) {
+                        if (img.src !== "https://i.ibb.co/ynqz8rC1/2.png") {
+                            img.src = "https://i.ibb.co/ynqz8rC1/2.png";
+                        }
+                    } else if (cardText.includes("俊豪") || cardText.includes("观棠府")) {
+                        if (img.src !== "https://i.ibb.co/5xsksgRV/6.png") {
+                            img.src = "https://i.ibb.co/5xsksgRV/6.png";
+                        }
+                    }
+                });
+            }
+
+            // 使用 MutationObserver 实时监控 DOM 树的动态渲染过程
+            const observer = new MutationObserver(() => {
+                forceFixImages();
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            // 每隔 200 毫秒扫描一次，连续扫描 5 秒，彻底粉碎异步渲染带来的延迟
+            let count = 0;
+            const timer = setInterval(() => {
+                forceFixImages();
+                if (++count > 25) clearInterval(timer);
+            }, 200);
+        });
+    </script>
 </head>
 <body class="bg-indigoDeep text-sandWarm antialiased overflow-x-hidden">
 
@@ -323,6 +375,7 @@
 
         <div id="metrics-container" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 text-center"></div>
     </section>
+
 <!-- ==================== 证书展示板块 ==================== -->
 <section id="certificates" class="py-32 bg-black/60 border-y border-white/5 px-8 md:px-24 reveal-element">
     <div class="max-w-7xl mx-auto">
@@ -347,7 +400,7 @@
         { title: "OpenLearn-People-centred designing", img: "https://i.ibb.co/ksXmC7YM/Open-Learn.jpg" },
         { title: "OpenLearn-Statement of participation", img: "https://i.ibb.co/DgHS2kLf/Penn-Medicine-Research-in-Global-Settings.jpg" },
         { title: "Penn Medicine", img: "https://i.ibb.co/YBSrXk2r/Statement-of-participation.jpg" },
-        { title: "MBA Diploma", img: "https://i.ibb.co/KxSZP87Q/ACADEMY-EUROPE-OPEN-UNIVERSITY-MBA-diploma.jpg" },
+        { title: "MBA Diploma", img: "https://i.ibb.co/KxSZP87Q/ACADEMY-EUROSE-OPEN-UNIVERSITY-MBA-diploma.jpg" },
         { title: "Business Intelligence", img: "https://i.ibb.co/JFKpZJPh/EUROPE-Business-Intelligence-and-Knowledge-Management-Systems.jpg" },
         { title: "Digital Marketing", img: "https://i.ibb.co/kVzspzPv/Digital-Marketing.jpg" }
     ];
@@ -371,6 +424,7 @@
     // 页面加载时渲染证书
     window.addEventListener('load', renderCertificates);
 </script>
+
     <section id="contact" class="py-32 bg-black px-8 md:px-24 border-t border-white/5 text-center">
         <div class="max-w-2xl mx-auto space-y-8">
             <span class="text-goldAccent text-xs tracking-[0.4em] block">// 06 STRATEGIC CONNECT</span>
@@ -423,9 +477,4 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-
-
-<script src="app.js"></script>
-</body>
-</html>
+ <script src="app.js"></script>
