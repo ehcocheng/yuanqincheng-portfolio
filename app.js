@@ -69,8 +69,8 @@ const SITE_DATA = {
             title: "北方新生活盛文锦州书城", 
             type: "文化商业空间 / 现象级地标", 
             desc: "解构并塑造极极具辨识度的现象级IP空间结构，引爆多维感官共鸣。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmusupd.png",
-            modalImgUrl: "https://s41.ax1x.com/2026/06/10/pmusQXt.png"
+            imgUrl: "https://i.ibb.co/7Tmp2q6/331.png",
+            modalImgUrl: "https://i.ibb.co/7Tmp2q6/331.png"
         },
         { 
             title: "美学中心综合体", 
@@ -82,8 +82,8 @@ const SITE_DATA = {
             title: "金科美邻汇商业", 
             type: "商业美陈 / 沉浸式情境空间", 
             desc: "精益预算控制下的美学奇迹，用创意设计穿透物理空间，引爆商业线下客流。", 
-            imgUrl: "https://s41.ax1x.com/2026/06/10/pmus878.jpg",
-            modalImgUrl: "https://s41.ax1x.com/2026/06/10/pmus1nP.jpg"
+            imgUrl: "https://i.ibb.co/4RVQTV9Q/2-2.jpg",
+            modalImgUrl: "https://i.ibb.co/4RVQTV9Q/2-2.jpg"
         },
         { 
             title: "金科邻里销售中心", 
