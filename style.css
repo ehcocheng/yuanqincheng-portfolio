@@ -1,0 +1,16 @@
+/* 修改后的 Canvas 样式 */
+#flowCanvas {
+  position: absolute;   /* 从 fixed 改为 absolute，让它留在原地，不随屏幕滚动 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;         /* 100% 会自动撑满它外层 Hero 容器的高度 */
+  z-index: 0;           /* 设为 0，只要文字的 z-index 比它大即可（例如 1） */
+  pointer-events: none; /* 保持鼠标事件穿透，不挡住文字选中和按钮点击 */
+}
+
+/* ⚠️ 极其重要：确保你的 Hero 区域容器具备相对定位 */
+.hero-section {         /* 把这里的 .hero-section 换成你网页第一屏的实际类名或 ID */
+  position: relative;   /* 必须是 relative，这样 Canvas 才会根据这一区来绝对定位 */
+  overflow: hidden;     /* 防止丝线摆动时超出第一屏的边界产生滚动条 */
+}
