@@ -101,17 +101,17 @@ const SITE_DATA = {
     miniProjects: [
         { 
             title: "机器人年会长廊视觉美陈总控", 
-            tag: "空间美陈 × 秩序总控", 
+            type: "空间美陈 × 秩序总控", 
             desc: "针对高规格峰会特定长廊进行空间美学叙事布局，在极短时效内达成高纯度政企形象传达。" 
         },
         { 
             title: "智能仿生机器人学术 Seminar 研讨", 
-            tag: "中智院学术专场", 
+            type: "中智院学术专场", 
             desc: "高效链接两江新区管委会与学术泰斗，解构政策台账，完成数场零偏差高精尖闭环内部研讨会流程总控。" 
         },
         { 
             title: "2025世界智能产业博览会机器人产业展区统筹负责人", 
-            tag: "国家级展会 × 闭环运营", 
+            type: "国家级展会 × 闭环运营", 
             desc: "负责企业招展、产业资源协调、现场运营及多方协同管理。面对复杂项目环境成功达成招展目标并攻坚多项突发问题，最终推动展区实现高质量落地、100%项目交付与零投诉运营。" 
         }
     ],
@@ -135,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSpaces();
     renderMetrics();
     initRevealObserver();
+    
+    // 协同启动：在网站DOM加载完后启动背景流光动画
+    initBackgroundAnimation(); 
 });
 
 // 打字机动态动效
@@ -270,17 +273,14 @@ function setupAndDisplayModal(tag, title, subtitle, metrics, detail, imgUrl) {
         'modal-detail': detail
     };
     
-    // 安全赋值文本
     Object.keys(elements).forEach(id => {
         const el = document.getElementById(id);
         if (el) el.innerText = elements[id] || '';
     });
 
-    // 安全赋值图片
     const imgEl = document.getElementById('modal-image');
     if (imgEl) imgEl.src = imgUrl || '';
 
-    // 唤醒弹窗动效
     const modal = document.getElementById('premium-modal');
     if (modal) {
         modal.classList.remove('hidden');
@@ -289,10 +289,7 @@ function setupAndDisplayModal(tag, title, subtitle, metrics, detail, imgUrl) {
     }
 }
 
-// ==========================================
-// 挂载至全局 Window 对象，防止 CodePen 作用域隔离报错
-// ==========================================
-
+// Window 作用域隔离挂载
 window.toggleMenu = function() { 
     const menu = document.getElementById('mobile-menu');
     if (menu) menu.classList.toggle('hidden'); 
@@ -321,4 +318,63 @@ window.closeModal = function() {
 
 function initRevealObserver() {
     document.querySelectorAll('.reveal-element').forEach(el => el.classList.add('active'));
+}
+
+
+// ==========================================
+// 核心优化：高兼容、不凌乱的纯原生轻量背景光束动画（追加在底部）
+// ==========================================
+function initBackgroundAnimation() {
+    const canvas = document.getElementById('flowCanvas');
+    if (!canvas) return; // 防御性保护：如果页面上没有该Canvas元素，不报错
+    
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    const lineCount = 5;  // 极度稀疏克制，避免干扰任何文字
+    const segments = 50; 
+    let time = 0;
+
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'; // 极柔和的留白拖尾
+        ctx.fillRect(0, 0, width, height);
+        
+        time += 0.003; // 静谧悠长地流动
+
+        for (let i = 0; i < lineCount; i++) {
+            ctx.beginPath();
+            
+            // 极致通透、极低的透明度（0.03 ~ 0.08），保障绝对视线聚焦
+            const opacity = 0.03 + (i / lineCount) * 0.05;
+            ctx.strokeStyle = `rgba(207, 193, 149, ${opacity})`;
+            ctx.lineWidth = 1.2;
+
+            const rowOffset = i * 80;
+
+            for (let j = 0; j <= segments; j++) {
+                const x = (j / segments) * width;
+                
+                // 压缩波幅，保证律动的克制感
+                const wave1 = Math.sin(j * 0.04 + time * 1.8 + rowOffset * 0.01) * 40;
+                const wave2 = Math.cos(j * 0.02 - time * 1.2 + rowOffset * 0.03) * 25;
+                
+                const y = height / 2 + wave1 + wave2 + (i - lineCount / 2) * 25;
+
+                if (j === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
 }
